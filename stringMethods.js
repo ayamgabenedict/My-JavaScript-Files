@@ -1,27 +1,21 @@
 //STRING methods
-console.log("coconuts".slice(4, 7));
-
-console.log("coconut".indexOf("u"));
-
-console.log("one two three".indexOf("ee"));
-
-console.log(" okay \n ".trim());//The trim method removes whitespace (spaces, newlines, tabs, and similar characters)
-
+const aSentence = 'Kofi is going to Krobo Odumasi.';  
+console.log(aSentence.length);
+console.log(aSentence.toLowerCase());
+console.log(aSentence.toUpperCase());
+console.log(aSentence.substring(0, 9));
+console.log(aSentence.split(''));//Split returns an ARRAY
+console.log(aSentence.split(' '));
+console.log(aSentence.indexOf("ee")); //Returns -1 if not found
+console.log(aSentence.repeat(3));
+console.log(aSentence.trim());//The trim method removes whitespace (spaces, newlines, tabs, and similar characters)
+console.log(aSentence.slice(4, 7));
 console.log(String(6).padStart(3, "0"));
 
-let sentence = "Secretarybirds specialize in stomping";
-words = sentence.split(" ");
-console.log(words);
 
 
-console.log(words.join(". "));
 
 
-console.log("LA".repeat(3));
 
 
-string = "abc";
-console.log(string.length);
 
-
-console.log(string[1]);

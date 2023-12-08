@@ -18,6 +18,21 @@ let words = ["never", "fully"];
 console.log(["will", ...words, "understand"]);
 
 
+//Using the SPREAD OPERATOR to evaluate Arrays In-Place
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2, arr3, arr4; 
+(function(){
+    arr2 = [...arr1];
+    arr4 = arr1;
+    arr1[0] = 'banana';
+    arr3 = arr1;
+})();
+console.log(`arr3 is now ` + JSON.stringify(arr3));
+console.log(`arr2 is ` + JSON.stringify(arr2));
+console.log(`arr4 is ` + JSON.stringify(arr4));
+console.log(`arr1 is now ` + JSON.stringify(arr1));
+
+
 //Example of RETURN KEYWORD
 function myLoop(){
     for(let i= 0; i< 10; i++){
@@ -88,3 +103,21 @@ function checkScope(){
     console.log(`s is a ${s} inside a "function"`)
 }
 checkScope()
+
+
+//Swapping the position of two inputs
+let varA = 'AAAA';
+let varB = 'BBBB';
+(() => {
+    [varA, varB] = [varB, varA];
+    return varA && varB;
+})();
+console.log(`varA is now ${varA}`);
+console.log(`varB is now ${varB}`);
+
+//My own implementation
+function swap(kwame, ama){
+    [kwame, ama] = [ama, kwame]
+    let swapped = [kwame, ama];
+    return swapped; 
+}

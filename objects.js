@@ -172,3 +172,20 @@ function lookup(name, prop){
 
 let krist = lookup('Kristan', 'likes');
 console.log(krist);
+
+
+//Function within an Object
+const bicycle = {
+    gear: 2,
+    setGear(newGear){
+        'use strict';
+        this.gear = newGear;
+    }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+// Write Concise Object Literal Declaration using simple Fields
+const persona = (name, age, gender) => ({name, age, gender});
+console.log(persona('Kwame Sefa Kai', 55, 'Male'))

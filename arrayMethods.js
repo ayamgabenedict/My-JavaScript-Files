@@ -9,6 +9,21 @@ console.log(arr.slice(2, 4)); //The start index is inclusive, the end index excl
 console.log(arr.slice(2)); //slice will take all of the elements after the start index when the end index is omitted.
 
 
+const fruits = new Array('apples', 'oranges', 'pears', 10, true);
+console.log(fruits);
+console.log(fruits[2]);
+fruits.push('banana');  //opp is "pop"
+console.log(fruits);
+fruits.unshift(15); //opp is "shift"
+console.log(fruits);
+let shiftedItem = fruits.shift(); 
+console.log("shifted item: " + shiftedItem);
+console.log(fruits.indexOf('apples')); //starts counting from 0
+console.log(Array.isArray(fruits));
+let poppedItem = fruits.shift(); //opp is "push"
+console.log("popped item: " + poppedItem);
+
+
 //Array Methods- MAP
 let array1= [1, 2, 3, 4, 5, 6];
 
@@ -77,3 +92,48 @@ console.log(positiveIntTimesTen);
 let squareOfPositiveInt = realNumbersArray.filter(arr => Number.isInteger(arr) 
                     && arr > 0).map(arr => arr *arr);
 console.log(squareOfPositiveInt);
+
+
+//Another Example
+const todos = [
+    {
+        id: 1,
+        text: 'Take out trash',
+        isCompleted: true
+        },
+    {
+        id: 2,
+        text: 'Meeting with the boss',
+        isCompleted: true
+        },
+    {
+        id: 3,
+        text: 'Dentist appt',
+        isCompleted: false
+        }
+];
+
+// High order Array method- forEach, map, filter
+//forEach
+todos.forEach((todo)=>
+    console.log(`Example of forEach: ${todo.text}`)
+);
+
+//Map--->> returns an array
+let todoText = todos.map((todo) => `Example of map: ${todo.text}`);
+
+console.log(todoText);
+
+//Filter--->> returns an array
+let todoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;  
+});
+console.log(todoCompleted);
+
+// Combining
+ todoCompleted = todos
+ .filter((todo) => todo.isCompleted === true)
+ .map((todo)=> todo.text)
+
+ console.log(todoCompleted);
+
