@@ -137,3 +137,96 @@ console.log(todoCompleted);
 
  console.log(todoCompleted);
 
+
+
+ //--------------HIGH ORDER ARRAY METHODS----------------------
+const companies= [
+    {name: 'Company One', category: 'Finance', start: 1981, end: 2003},
+    {name: 'Company Two', category: 'Retail', start: 1992, end: 2008},
+    {name: 'Company Three', category: 'Auto', start: 1999, end: 2007},
+    {name: 'Company Four', category: 'Retail', start: 1989, end: 2010},    
+    {name: 'Company Five', category: 'Technology', start: 2009, end: 2014},
+    {name: 'Company Six', category: 'Finance', start: 1987, end: 2010},
+    {name: 'Company Seven', category: 'Auto', start: 1986, end: 1996},
+    {name: 'Company Eight', category: 'Technology', start: 2011, end: 2016},
+    {name: 'Company Nine', category: 'Retail', start: 1981, end: 1989},
+];
+
+const ages= [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
+
+//forEach
+companies.forEach((company) => {
+    console.log(company);
+});
+
+//filter
+const canDrink= ages.filter(age => age>= 21);
+console.log(canDrink);
+
+let retailCompanies= companies.filter(company => company.category==='Retail');
+console.log(retailCompanies);
+
+retailCompanies= companies.filter(company => company.category==='Retail')
+.map(company => {
+    return `${company.name}, Start year:${company.start}, End Year:${company.end}`
+});
+console.log(retailCompanies);
+
+//Get companies that lasted 10years or more
+const tenYearsCompanies= companies.filter(company=> (company.end - 
+company['start']) >= 10);
+console.log(tenYearsCompanies);
+
+//map
+const testMap= companies.map(company=>`${company.name} [${company.start} - ${company.end}]`);
+
+console.log(testMap);
+
+let ageSquareRoot= ages.map(age => Math.sqrt(age));
+console.log(ageSquareRoot);
+
+//Square Ages and Multiply by two
+agesSquaredTimesTwo= ages
+    .map(age => age * age)
+    .map(age => age * 2);
+console.log(agesSquaredTimesTwo);
+
+
+//sort
+//Sort companies by start year
+let sortedCompanies= companies.sort((a, b) => (a.start > b.start ? 1: -1));
+console.log(sortedCompanies);
+
+//Another implementation of the "company sort by start year" above
+sortedCompanies= companies.sort((a, b) => (a.start - b.start));
+console.log(sortedCompanies);
+
+//Sort ages in ascending order
+const sortAgesAsc= ages.sort((a, b) => a - b);
+console.log(sortAgesAsc);
+
+//Sort ages in descending order
+const sortAgesDsc= ages.sort((a, b) => b - a);
+console.log(sortAgesDsc);
+
+//Another Implemetation Sort ages in descending order
+sortAgesDsc= ages.sort((b, a) => a - b);
+console.log(sortAgesDsc);
+
+//reduce
+//Summing the elements in ages
+const ageSum= ages.reduce((total, age) => total + age, 0);
+console.log(ageSum);
+
+//Get Total years for all companies
+const companiesTotalYears= companies.reduce((total, company) => 
+total + (company.end - company.start), 0);
+
+//Combined Methods
+const combined= ages
+.map(age => age * 2)
+.filter(age => age >= 40)
+.sort((a, b) => a - b )
+.reduce((a, b) => a + b, 0)
+
+console.log(combined);

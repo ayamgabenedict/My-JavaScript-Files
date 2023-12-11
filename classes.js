@@ -51,3 +51,50 @@ console.log(temp);
 thermos.temperature = 26;
 temp = thermos.temperature;
 console.log(temp);
+
+
+//Example 3
+class Books {
+    constructor(title, author, year){
+        this.title= title;
+        this.author= author;
+        this.year= year;
+    }
+    getSummary(){
+        return `${this.title} was written by ${this.author} in ${this.year}`;    
+    }
+    getAge(){
+        let years= new Date().getFullYear()- this.year;
+        return `${this.title} is ${years} years old`; 
+    }
+    revise(newYear){
+        this.year= newYear;
+        this.revised = true;
+    }
+
+//Static method, no need to instantiate it
+static topBookStore(){
+    return `Barnes & Noble`;
+    }
+}
+console.log(Books.topBookStore());
+
+//Magazine Subclass, --Easier using this as compared to Inheritance
+class Magazine extends Books{
+    constructor(title, author, year, month){
+        super(title, author, year);
+        this.month= month;
+    }
+}
+const maga= new Magazine('Mag Two', 'Efia Akoto', '1999', 'Oct');
+console.log(maga);
+console.log(maga.getSummary());
+maga.revise(2012)
+console.log(maga);
+
+
+//Instantiate Object
+const book1= new Books('Book Seven', 'Mary Agyemang', '2015');
+console.log(book1);
+book1.revise('2020');
+console.log(book1);
